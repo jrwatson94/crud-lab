@@ -4,8 +4,8 @@ import {connect} from 'react-redux'
 
 class Reviews extends Component {
   renderReviews = () => {
-    console.log(this.props)
-    return this.props.reviews.map(review => <Review {...review} key={review.id}/>)
+    const reviews = this.props.reviews.filter(rev => rev.restaurantId === this.props.restaurant.id)
+    return reviews.map(review => <Review {...review} key={review.id}/>)
   }
   render() {
     return (
